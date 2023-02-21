@@ -38,7 +38,15 @@ pub fn main() void {
 
 // Please complete this function which prints an anonymous struct
 // representing a circle.
-fn printCircle(???) void {
+fn Circle(comptime T: type) type {
+    return struct {
+        center_x: T,
+        center_y: T,
+        radius: T,
+    };
+}
+
+fn printCircle(circle: Circle(u32)) void {
     print("x:{} y:{} radius:{}\n", .{
         circle.center_x,
         circle.center_y,
